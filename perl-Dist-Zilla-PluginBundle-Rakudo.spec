@@ -5,7 +5,7 @@ Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
 Release:    %mkrel 1
 
-Summary:    No summary found
+Summary:    rakudo bundle for dist-zilla
 License:    GPL+ or Artistic
 Group:      Development/Perl
 Url:        http://search.cpan.org/dist/%{upstream_name}
@@ -25,14 +25,13 @@ BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
-
+rakudo bundle for dist-zilla.
 
 %prep
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
-
 %make
 
 %check
@@ -50,5 +49,3 @@ rm -rf %buildroot
 %doc Changes META.yml LICENSE README
 %{_mandir}/man3/*
 %perl_vendorlib/*
-
-
